@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加图书</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="/static/jquery-3.3.1.js"></script>
+    <script src="/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">图书新增</h3>
+                </div>
+                <div class="panel-body">
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <p>书名：<input type="text" name="name" class="form-control"></p>
+                        </div>
+                        <div class="form-group">
+                            <p>价格：<input type="text" name="price" class="form-control"></p>
+                        </div>
+                        <div class="form-group">
+                            <p>出版日期：<input type="date" name="pub_date" class="form-control"></p>
+                        </div>
+                        <div class="form-group">
+                            <p>作者：
+                                <select name="authors" id="" class="form-control" multiple>
+                                    {% for author in authors %}
+                                        <option value="{{ author.id }}">{{ author.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <p>出版社：
+                                <select name="publish" id="" class="form-control">
+                                    {% for publish in publishs %}
+                                        <option value="{{ publish.id }}">{{ publish.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </p>
+                        </div>
+                        <input type="submit" value="新增" class="btn btn-warning pull-right">
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

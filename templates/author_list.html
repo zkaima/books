@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block main %}
+    <script>
+        $('.home').removeClass('active')
+        $('.book').removeClass('active')
+        $('.publish').removeClass('active')
+        $('.author').addClass('active')
+    </script>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">作者</h3>
+        </div>
+        <div class="panel-body">
+            <a href="/add_author/" type="button" class="btn btn-danger pull-right">新增</a>
+        </div>
+        <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>作者</th>
+                <th>性别</th>
+                <th>编辑</th>
+                <th>删除</th>
+            </tr>
+            {% for author in authors %}
+                <tr>
+                    <td>{{ author.id }}</td>
+                    <td>{{ author.name }}</td>
+                    <td>{{ author.sex }}</td>
+                    <td><a href="/update_author/?id={{ author.id }}">编辑</a></td>
+                    <td><a href="/delete_list/{{ author.id }}">删除</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}

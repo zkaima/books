@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block main %}
+    <script>
+        $('.home').removeClass('active')
+        $('.book').removeClass('active')
+        $('.publish').addClass('active')
+        $('.author').removeClass('active')
+    </script>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">出版社</h3>
+        </div>
+        <div class="panel-body">
+            <a href="/add_publish/" type="button" class="btn btn-danger pull-right">新增</a>
+        </div>
+        <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>出版社</th>
+                <th>地址</th>
+                <th>邮箱</th>
+                <th>编辑</th>
+                <th>删除</th>
+            </tr>
+            {% for publish in publishs %}
+                <tr>
+                    <td>{{ publish.id }}</td>
+                    <td>{{ publish.name }}</td>
+                    <td>{{ publish.addr }}</td>
+                    <td>{{ publish.email }}</td>
+                    <td><a href="/update_publish/?id={{ publish.id }}">编辑</a></td>
+                    <td><a href="/delete_list/{{ publish.id }}">删除</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}
